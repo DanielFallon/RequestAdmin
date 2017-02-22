@@ -1,8 +1,9 @@
 # Create a new powershell with the same environment and elevate it
+# return the exit code from the process
 function Request-AdministrativeRights
 {
     $process = Start-Process -WorkingDirectory (Get-Location) -FilePath "PowerShell" -verb runas -Wait;
-    $process.ExitCode
+    return $process.ExitCode
 }
 
 # shamelessly stolen from https://stapp.space/sudo-under-windows/
